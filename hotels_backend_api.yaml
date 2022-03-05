@@ -1,0 +1,305 @@
+---
+openapi: 3.0.0
+info:
+  title: Simple Rewards Account API
+  description: This is a simple API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0-oas3
+servers:
+- url: https://virtserver.swaggerhub.com/vinitgaikwad0810/RewardsAccountAPI/1.0.0
+paths:
+  /signup:
+    post:
+      summary: User will signup using this API. An account will be created on the backend.
+      description: create a new account
+      operationId: signup
+      requestBody:
+        description: username and password is requested.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+      responses:
+        "201":
+          description: An account will be created on the backend. 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInfo'
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: an existing item already exists
+  /login:
+    post:
+      summary: It authenticates a login attempt. Related account is returned.
+      description: create a new account
+      operationId: login
+      requestBody:
+        description: username and password is requested.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+      responses:
+        "200":
+          description: authentication is successful and related account is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInfo'
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: an existing item already exists
+  /hotels:
+    post:
+      summary: create a new hotel in the backend
+      description: create a new hotel in the backend
+      operationId: postHotel
+      requestBody:
+        description: HotelInfo is returned.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HotelInfo'
+      responses:
+        "201":
+          description: hote is created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HotelInfo'
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: an existing item already exists
+  /hotels/{zip}:
+    get:
+      summary: Fetches the nearby hotels for that zipcode
+      description: Fetches the nearby hotels for that zipcode
+      operationId: searchHotels
+      parameters:
+      - name: zip
+        in: path
+        description: Pass zip code to fetch list of hotels.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Returns list of hotels.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotels'
+        "400":
+          description: bad input parameter
+  /account/{accountId}:
+    get:
+      summary: Fetches the account details of an account
+      description: Fetches the account details of an account.
+      operationId: getAccountInfo
+      parameters:
+      - name: accountId
+        in: path
+        description: Pass AccountId to fetch information.
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Returns AccountInfo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInfo'
+        "400":
+          description: bad input parameter
+  /account:
+    post:
+      summary: creates a new account
+      description: Adds an account into the system.
+      operationId: postAccountInfo
+      requestBody:
+        description: AccountInfo is returned.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountInfo'
+      responses:
+        "201":
+          description: item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInfo'
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: an existing item already exists
+  /reservations:
+    post:
+      summary: creates a reservation in the system
+      description: creates a reservation in the system
+      operationId: postReservation
+      requestBody:
+        description: ReservationInfo is returned.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationInfo'
+      responses:
+        "201":
+          description: item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationInfo'
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: an existing item already exists
+  /reservation/{accountId}: 
+    get:
+      summary: Fetches reservations for an account.
+      description: Fetches reservations for an account.
+      operationId: getReservationsForAnAccount
+      parameters:
+      - name: accountId
+        in: path
+        description: accountId
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Returns list of reservations for an account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservations'
+        "400":
+          description: bad input parameter
+        
+components:
+  schemas:
+    UserInfo:
+      required:
+      - username
+      - password
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    Hotels:
+      type: array
+      items:
+        $ref: '#/components/schemas/HotelInfo'
+    HotelInfo:
+      required:
+      - address
+      - hotelId
+      - name
+      - rooms
+      - zipcode
+      type: object
+      properties:
+        hotelId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          example: Any acceptable name of the hotel
+        zipcode:
+          type: string
+        address:
+          type: string
+        rooms:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoomInfo'
+    AccountInfo:
+      required:
+        - accountId
+        - rewardsPoint
+        - username
+        - password
+      type: object
+      properties:
+        accountId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        username:
+          type: string
+          example: Any acceptable Username
+        password:
+          type: string
+        rewardsPoint:
+          type: integer
+          example: 230
+    Reservations:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReservationInfo'
+    ReservationInfo:
+      required:
+       - reservationId
+       - roomId
+       - hotelId
+       - accountId
+       - roomInfo
+       - hotelInfo
+      type: object
+      properties:
+        reservationId:
+          type: string
+          format: uuid
+        roomId: 
+          type: string
+          format: uuid
+        hotelId:
+          type: string
+          format: uuid
+        accountId:
+          type: string
+          format: uuid
+        roomInfo:
+          $ref: '#/components/schemas/RoomInfo'
+        hotelInfo:
+          $ref: '#/components/schemas/HotelInfo'
+    RoomInfo:
+      required:
+         - roomId
+         - roomPhotoUrl
+         - roomFeatures
+         - basePrice
+      type: object
+      properties:
+        roomId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        roomPhotoUrl:
+          type: string
+        roomFeatures:
+          type: array
+          items:
+            type: string
+        basePrice:
+          type: number
+ 
