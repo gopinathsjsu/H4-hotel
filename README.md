@@ -33,7 +33,7 @@ We are building containers for backend, frontend and Mongo.
 
 Useful Commands: 
 
-(1) 
+(1) docker-compose up   (it builds docker impages and starts container)
 
 
 
@@ -42,10 +42,11 @@ Useful Commands:
 	Language: Java
 	Framework: Spring-boot
 
+
 	Userful commands:
 
 	(1) mvn spring-boot:run -> To start running Java app. 
-
+	(2) mvn clean install -> To the compile the app and build the jar
 
 
 
