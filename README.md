@@ -8,3 +8,56 @@ This web-based application is designed to handle all the primary information req
 
 The primary goal of any website-based project is to establish an interactive user interface that is user (visitor) friendly, and we intend to meet that goal here in this project. This project is mainly based on HTML, CSS, ReactJS, JavaScript, JSON and SQL. It also makes use of basic php and jQuery plugins to make the website effective and efficient.
 
+
+
+# hotels
+hotels cmpe 202
+
+
+
+Folders And Files:
+
+spring-boot-java-app/hotels: it contains the backend java app. 
+frontend-react-app: it contains the frontend javascript app. It is based on ReactJs framework. 
+mongo-volume: mongo-volume to be mounted in the mongoDb's docker container
+init-mongo.js: A new user is created for mongoDb in the docker container. Check docker-compose.yaml.
+
+
+
+
+
+# Docker Compose
+
+We are building containers for backend, frontend and Mongo. 
+
+
+Useful Commands: 
+
+(1) 
+
+
+
+# Backend:
+
+	Language: Java
+	Framework: Spring-boot
+
+	Userful commands:
+
+	(1) mvn spring-boot:run -> To start running Java app. 
+
+
+
+
+
+
+
+# Frontend:
+	
+	Language: Javascript
+	Framework: ReactJS
+
+	(1) npm start: Start the react app 
+
+
+# MongoDb:
