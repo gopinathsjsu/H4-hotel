@@ -3,7 +3,7 @@ services:
   java-server:
     container_name: java-server
     build:
-      context: sprint-boot-java-app/hotels
+      context: spring-boot-java-app/hotels
       dockerfile: Dockerfile
     image: java-server:latest
     ports:
