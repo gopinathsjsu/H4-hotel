@@ -15,12 +15,12 @@ hotels cmpe 202
 
 
 
-Folders And Files:
+# Folders And Files:
 
-spring-boot-java-app/hotels: it contains the backend java app. 
-frontend-react-app: it contains the frontend javascript app. It is based on ReactJs framework. 
-mongo-volume: mongo-volume to be mounted in the mongoDb's docker container
-init-mongo.js: A new user is created for mongoDb in the docker container. Check docker-compose.yaml.
+1. spring-boot-java-app/hotels: it contains the backend java app. 
+2. frontend-react-app: it contains the frontend javascript app. It is based on ReactJs framework. 
+3. mongo-volume: mongo-volume to be mounted in the mongoDb's docker container
+4. init-mongo.js: A new user is created for mongoDb in the docker container. Check docker-compose.yaml.
 
 
 
