@@ -3,12 +3,16 @@ import './App.css';
 import Appbar from './components/Appbar';
 import React, { Component }  from 'react';
 import FormPropsTextFields from './components/login';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
       <div className='App'>
-        <Appbar/>
+        {/* <Appbar/>
         <FormPropsTextFields/>
+        <button className='btn btn-primary'>button</button> */}
+
+        <Navbar/>
       </div>
   );
 }
