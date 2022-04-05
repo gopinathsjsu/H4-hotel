@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 function App() {
   return (
       <div className='App'>
+        <h1>F4 Hotels</h1>
         {/* <Appbar/>
         <FormPropsTextFields/>
         <button className='btn btn-primary'>button</button> */}
