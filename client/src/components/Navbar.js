@@ -11,7 +11,16 @@ function Navbar() {
     <div>
       <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="/">
-          Hotel Booking
+          F4Hotels
+        </a>
+        <a className="navbar-brand" href="/">
+          Destinations
+        </a>
+        <a className="navbar-brand" href="/">
+          Help
+        </a>
+        <a className="navbar-brand" href="/">
+          Services
         </a>
         <button
           class="navbar-toggler"
