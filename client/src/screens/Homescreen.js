@@ -19,7 +19,10 @@ function Homescreen() {
   const [fromdate, setfromdate] = useState('');
   const [todate, settodate] = useState('')
   const [loading, setloading] = useState(false);
-  const [searchkey, setsearchkey] = useState('')
+  const [searchkey, setsearchkey] = useState('');
+  const [location, setLocation] = useState('')
+  const [searchlockey, setsearchlockey] = useState('');
+
   const[type , settype]=useState('all')
   function filterByDate(dates) {
     setfromdate(moment(dates[0]).format('DD-MM-YYYY'))
@@ -79,6 +82,12 @@ function Homescreen() {
     sethotels(dupdate)
   }
 
+  function filterByLocation()
+  {
+    const locs = duplicatehotes.filter(room=>room.location.toLowerCase().includes(searchlockey))
+    sethotels(locs)
+  }
+
   function filterByType(e)
   {
     settype(e)
@@ -96,11 +105,11 @@ function Homescreen() {
     <div className="mt-5">
       <div className="container">
         <div className="row bs p-3 m-5">
-          <div className="col-md-4">
+          <div className="col-md-3">
             <RangePicker style={{ height: "38px" }} onChange={filterByDate} format='DD-MM-YYYY' className='m-2'/>
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-3">
             <input
               type="text"
               className="form-control i2 m-2"
@@ -110,7 +119,20 @@ function Homescreen() {
               onChange={(e)=>{setsearchkey(e.target.value)}}
             />
           </div>
-          <div className="col-md-4">
+
+          <div className="col-md-3">
+            <input
+              type="text"
+              className="form-control i2 m-2"
+              placeholder='location'
+              value={searchlockey}
+              onKeyUp={filterByLocation}
+              onChange={(e)=>{setsearchlockey(e.target.value)}}
+            />
+          </div>
+
+
+          <div className="col-md-3">
             <select className="form-control m-2" value={type} onChange={(e)=>{filterByType(e.target.value)}} >
 
             <option value="all">All</option>
