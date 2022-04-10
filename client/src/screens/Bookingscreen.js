@@ -107,7 +107,7 @@ function Bookingscreen({match}) {
             shippingAddress
             token={tokenHander}
             stripeKey='pk_test_51IYnC0SIR2AbPxU0TMStZwFUoaDZle9yXVygpVIzg36LdpO8aSG8B9j2C0AikiQw2YyCI8n4faFYQI5uG3Nk5EGQ00lCfjXYvZ'
-            currency='INR'
+            currency='USD'
             >
 
                   
