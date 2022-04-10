@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
 const moment = require("moment");
 const stripe = require("stripe")(
-  "pk_test_51KmszLEOJOpR3ObLM9jCGxpqmVUTnPqaiWyDwXpNxllMtgfvcc9YTWpgomgDN5cd0O4c4mPnjVTX2hbylP8QMJV400cHhXB5rB"
+  "sk_test_51IYnC0SIR2AbPxU0EiMx1fTwzbZXLbkaOcbc2cXx49528d9TGkQVjUINJfUDAnQMVaBFfBDP5xtcHCkZG1n1V3E800U7qXFmGf"
 );
 const Booking = require("../models/booking");
 const Room = require("../models/room");
@@ -20,7 +20,7 @@ router.post("/bookroom", async (req, res) => {
       const payment = await stripe.charges.create(
         {
           amount: totalAmount * 100,
-          currency: "usd",
+          currency: "inr",
           customer: customer.id,
           receipt_email: token.email,
         },
