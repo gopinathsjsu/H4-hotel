@@ -40,13 +40,13 @@ Useful Commands:
 # Backend:
 
 	Language: Java
-	Framework: Spring-boot
+	Framework: Node js
 
 
 	Userful commands:
 
-	(1) mvn spring-boot:run -> To start running Java app. 
-	(2) mvn clean install -> To the compile the app and build the jar
+	(1) npm i nodemon -> To install nodemon
+	(2) npm nodemon(Linux)/npm run server(MAC OS) -> To start the backend server
 
 
 
