@@ -4,7 +4,8 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { Calendar } from "react-date-range";
 import { DateRangePicker } from "react-date-range";
 import moment from "moment";
-
+import Select from 'react-select';
+import AsyncSelect from "react-select/async";
 import axios from "axios";
 import Loader from "../components/Loader";
 import Room from "../components/Room";
@@ -13,16 +14,25 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
 const { RangePicker } = DatePicker;
+
+
 function Homescreen() {
+
+
+  const aquaticCreatures = [
+    { label: 'san jose', value: 'san jose' },
+    { label: 'santa clara', value: 'santa clara' }
+  ];
+
+
   const [hotels, sethotels] = useState([]);
   const [duplicatehotes, setduplicatehotes] = useState([]);
   const [fromdate, setfromdate] = useState('');
   const [todate, settodate] = useState('')
   const [loading, setloading] = useState(false);
   const [searchkey, setsearchkey] = useState('');
-  const [location, setLocation] = useState('')
+  const [location, setLocation] = useState('all')
   const [searchlockey, setsearchlockey] = useState('');
-
   const[type , settype]=useState('all')
   function filterByDate(dates) {
     setfromdate(moment(dates[0]).format('DD-MM-YYYY'))
@@ -53,7 +63,7 @@ function Homescreen() {
         
         
       }
-      if(availability || room.currentbookings.length==0) 
+      if(availability || room.currentbookings.length===0) 
       {
         temp.push(room)
       }
@@ -82,11 +92,19 @@ function Homescreen() {
     sethotels(dupdate)
   }
 
-  function filterByLocation()
+  function filterByLocation(e)
   {
-    const locs = duplicatehotes.filter(room=>room.location.toLowerCase().includes(searchlockey))
-    sethotels(locs)
+    setLocation(e)
+    if(e!=='all'){
+      const dupdate = duplicatehotes.filter(room=>room.location.toLowerCase().includes(e.toLowerCase()))
+      sethotels(dupdate)
+    }
+    else{
+      sethotels(duplicatehotes)
+    }
   }
+
+  
 
   function filterByType(e)
   {
@@ -121,14 +139,20 @@ function Homescreen() {
           </div>
 
           <div className="col-md-3">
-            <input
-              type="text"
-              className="form-control i2 m-2"
-              placeholder='location'
-              value={searchlockey}
-              onKeyUp={filterByLocation}
-              onChange={(e)=>{setsearchlockey(e.target.value)}}
-            />
+            
+          {/* <Select
+  options={aquaticCreatures}
+  
+  onChange={e => {setsearchlockey(e.value)}}
+/> */}
+<select className="form-control m-2" value={location} onChange={(e)=>{filterByLocation(e.target.value)}} >
+
+<option value="all">All</option>
+  <option value="Montery">Montery</option>
+  <option value="san Jose">San Jose</option>
+  <option value="san Francisco">San Francisco</option>
+  
+</select>
           </div>
 
 
