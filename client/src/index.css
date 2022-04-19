@@ -91,3 +91,126 @@ p{
   color:black !important;
   margin-top: 10px !important;
 }
+
+/* ////////////HOME GUEST DROPDOWN//////////////////////////////////////////////////////////////////////////////    */
+
+.menu-container {
+  background-color:white;
+  padding-left:0px;
+  padding-right:0px;
+
+
+}
+
+.menu-box{
+      background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+
+}
+
+.menu-box-2{
+      background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+        padding-bottom:1.5vh;
+
+}
+
+.menu-item {
+  width: 100%;
+    position: relative;
+
+  
+}
+
+.menu-item {
+  width: 100%;
+    position: relative;
+
+  
+}
+
+.menu-item a {
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+
+
+    font-weight: 300;
+    color: #a6a6a6;
+    font-family: mallory,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    cursor: pointer;
+}
+
+
+
+
+
+.menu-item ul {
+  margin-top: 5px;
+  list-style-type: none;
+  height: 0px;
+  overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background:white;
+  
+  -webkit-transition: height 1s ease;
+    -moz-transition: height 1s ease;
+    -o-transition: height 1s ease;
+    -ms-transition: height 1s ease;
+    transition: height 1s ease;
+    z-index: 100;
+}
+
+.menu-item:hover ul {
+  height:25vh;
+      z-index: 100;
+
+}
+
+.menu-item ul li div {
+  width: 100%;
+
+
+}
+
+
+.hotel-search-menu-item ul {
+  margin-top: 5px;
+  list-style-type: none;
+  height: 0px;
+  overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    background:white;
+  
+  -webkit-transition: height 1s ease;
+    -moz-transition: height 1s ease;
+    -o-transition: height 1s ease;
+    -ms-transition: height 1s ease;
+    transition: height 1s ease;
+    z-index: 100;
+}
+
+.hotel-search-menu-item:hover ul {
+  height:15vh;
+      z-index: 100;
+
+}
+
+.menu-item ul li div {
+  width: 100%;
+
+
+}
