@@ -1,11 +1,28 @@
 import React from "react";
-
+import {useEffect,useState} from 'react';
+import axios from 'axios';
 function Navbar() {
 
   function logout() {
     localStorage.removeItem('currentUser')
     window.location.href='/login'
   }
+
+  const [rewards, setRewards] = useState([]);
+    
+    useEffect(() => {
+      async function fetchData() {
+        var retrievedData = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(retrievedData.email)
+        const req = await axios.post('/api/users/rewards',{email:retrievedData.email});
+        var reqdata = req.data;
+        console.log(reqdata[0].rewards);
+        setRewards(reqdata[0].rewards);
+       
+      }
+
+      fetchData();
+    }, [])
 
   return (
     <div>
@@ -47,6 +64,7 @@ function Navbar() {
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="/profile">Profile</a>
+              <a class="dropdown-item" href="/profile">Rewards: &nbsp; {rewards}</a>
               <a class="dropdown-item" href="#" onClick={logout}>Logout</a>
             </div>
           </div>
