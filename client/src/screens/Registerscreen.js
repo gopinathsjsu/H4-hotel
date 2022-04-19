@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useDispatch , useSelector} from 'react-redux'
 import axios from "axios";
+import './screen.css';
 import Error from "../components/Error";
 import Loader from "../components/Loader";
 import Success from '../components/Success'
@@ -75,6 +76,10 @@ export default function Registerscreen() {
               required
               onChange={(e)=>{setcpassword(e.target.value)}}
             />
+              <div class="rewards">
+  <input type="checkbox" id="rewards" name="rewards"/>
+  <label for="rewards">Opt in for Rewards</label>
+</div>
             <button onClick={register} className="btn btn-primary rounded-pill mt-3 mb-3">REGISTER</button>
             <br/>
             <a style={{color:'black'}} href="/login">Click Here To Login</a>

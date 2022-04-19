@@ -20,7 +20,11 @@ function Bookingscreen({match}) {
     const fromdate=moment(match.params.fromdate , 'DD-MM-YYYY')
     const todate=moment(match.params.todate,'DD-MM-YYYY')
     const totalDays = moment.duration(todate.diff(fromdate)).asDays()+1
-    const [totalAmount , settotalAmount]=useState()
+    const [totalAmount , settotalAmount]=useState(0)
+    const [rewards, setRewards] = useState([]);
+    const [checked, setChecked] = useState(false); 
+
+
     useEffect(async() => {
         
         try {
@@ -30,6 +34,14 @@ function Bookingscreen({match}) {
             setroom(data);
             setloading(false);
             settotalAmount(data.rentperday * totalDays)
+
+            var retrievedData = JSON.parse(localStorage.getItem('currentUser'));
+            console.log(retrievedData.email)
+            const req = await axios.post('/api/users/rewards',{email:retrievedData.email});
+            var reqdata = req.data;
+            console.log(reqdata[0].rewards);
+            setRewards(reqdata[0].rewards);
+
           } catch (error) {
             console.log(error);
             setloading(false);
@@ -53,12 +65,28 @@ function Bookingscreen({match}) {
 
         }
 
+        async function updateData() {
+            var retrievedData = JSON.parse(localStorage.getItem('currentUser'));
+            console.log(retrievedData.email)
+            const req = await axios.post('/api/users/rewards',{email:retrievedData.email});
+            var reqdata = req.data;
+            console.log(reqdata[0].rewards);
+            setRewards(reqdata[0].rewards);
+            var reqdata2 = reqdata[0].rewards;
+            if(checked==false){
+                reqdata2 = reqdata2 - 100;
+            }
+            const req2 = axios.put('/api/users/updatereward',{email:reqdata[0].email,reward: reqdata2});
+          }
 
         try {
             setloading(true);
             const result = await axios.post('/api/bookings/bookroom' , bookingDetails)
+            updateData();
             setloading(false)
             Swal.fire('Congrats' , 'Your Room has booked succeessfully' , 'success').then(result=>{
+                
+               
                 window.location.href='/profile'
             })
         } catch (error) {
@@ -68,6 +96,19 @@ function Bookingscreen({match}) {
         }
         
     }
+
+    
+    const handleChange = () => { 
+        setChecked(!checked); 
+        console.log(checked); 
+        if(checked == false){
+            settotalAmount(totalAmount-100);
+        }
+        else{
+            settotalAmount(totalAmount+100);
+        }
+        
+      }; 
 
     return (
         <div className='m-5'>
@@ -94,8 +135,12 @@ function Bookingscreen({match}) {
                            <p><b>To Date</b> : {match.params.todate}</p>
                            <p><b>Max Count </b>: {room.maxcount}</p>
                            </div>
-                           
+                           <div class="rewards">
+                                <input type="checkbox" id="rewards" onChange={handleChange} name="rewards"/>
+                                <label for="rewards">Use Rewards (Max:100)</label>
+                            </div>
                            <div className='mt-5'>
+                               <p>Total rewards: &nbsp; {rewards}</p>
                            <h1><b>Amount</b></h1>
                            <hr />
                            <p>Total Days : <b>{totalDays}</b></p>

@@ -58,6 +58,32 @@ router.get("/getallusers", async(req, res) => {
   
 });
 
+router.post("/rewards", async(req, res) => {
+
+    const {email} = req.body
+    try {
+        const user = await User.find({email:email})
+        res.send(user)
+    } catch (error) {
+        return res.status(400).json({ message: error });
+    }
+  
+});
+
+router.put("/updatereward", async(req, res) => {
+
+    const {email,reward} = req.body;
+    var new_reward = reward + 100;
+    try {
+        const user = await User.findOneAndUpdate({email:email},{$set:{rewards: new_reward}});
+        //console.log(user);
+        res.send("successful");
+    } catch (error) {
+        return res.status(400).json({ message: error });
+    }
+  
+});
+
 router.post("/deleteuser", async(req, res) => {
   
     const userid = req.body.userid
