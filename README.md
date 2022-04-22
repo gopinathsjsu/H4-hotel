@@ -9,6 +9,15 @@ This web-based application is designed to handle all the primary information req
 The primary goal of any website-based project is to establish an interactive user interface that is user (visitor) friendly, and we intend to meet that goal here in this project. This project is mainly based on HTML, CSS, ReactJS, JavaScript, JSON and SQL. It also makes use of basic php and jQuery plugins to make the website effective and efficient.
 
 
+##
+
+## Architecture Diagram
+
+<img width="883" alt="image" src="https://user-images.githubusercontent.com/98585812/164783338-1ea327b4-20d1-4e88-b84f-13a384ac30fb.png">
+
+
+##
+
 
 # hotels
 hotels cmpe 202
