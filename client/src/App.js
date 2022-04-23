@@ -10,10 +10,25 @@ import Bookingscreen from "./screens/Bookingscreen";
 import Profilescreen from "./screens/Profilescreen";
 import Landingscreen from "./screens/Landingscreen";
 import Adminscreen from "./screens/Adminscreen";
-
+import './App.css'
+import hotelimage from "./images/back.jpg";
     
 function App() {
+
+
   return (
+
+    <div
+    class="bg_image"
+    style={{
+      backgroundImage: 'url('+hotelimage+')',
+      backgroundSize: "cover",
+      height: "280vh",
+      color: "#f5f5f5",
+      
+      backgroundRepeat: 'no-repeat'
+    }}
+  >
     <div className="App">
       <Navbar />
       <BrowserRouter>
@@ -26,6 +41,7 @@ function App() {
          <Route path="/profile" component={Profilescreen}/>
          <Route path="/admin" component={Adminscreen}/>
       </BrowserRouter>
+    </div>
     </div>
   );
 }
