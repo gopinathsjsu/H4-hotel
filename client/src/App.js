@@ -11,7 +11,7 @@ import Profilescreen from "./screens/Profilescreen";
 import Landingscreen from "./screens/Landingscreen";
 import Adminscreen from "./screens/Adminscreen";
 import './App.css'
-import hotelimage from "./images/back.jpg";
+import hotelimage from "./images/back.png";
     
 function App() {
 
@@ -29,6 +29,8 @@ function App() {
       backgroundRepeat: 'no-repeat'
     }}
   >
+
+    
     <div className="App">
       <Navbar />
       <BrowserRouter>
