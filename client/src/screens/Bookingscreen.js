@@ -29,6 +29,13 @@ function Bookingscreen({ match }) {
     const [totalAmount, settotalAmount] = useState(0)
     const [rewards, setRewards] = useState([]);
     const [checked, setChecked] = useState(false);
+    const [dailyContinentalBreakfast, setDailyContinentalBreakfast] = useState(false);
+    const [accessToFitnessRoom, setAccessToFitnessRoom] = useState(false);
+    const [accessToSwimmingPoolJacuzzi, setAccessToSwimmingPoolJacuzzi] = useState(false);
+    const [accessToDailyParking, setAccessToDailyParking] = useState(false);
+    const [accessToAllMealsIncluded, setAccessToAllMealsIncluded] = useState(false);
+
+
 
 
     useEffect(async () => {
@@ -105,6 +112,7 @@ function Bookingscreen({ match }) {
 
 
     const handleChange = () => {
+        console.log("checked:" + checked);
         setChecked(!checked);
         console.log(checked);
         if (checked == false) {
@@ -112,6 +120,73 @@ function Bookingscreen({ match }) {
         }
         else {
             settotalAmount(totalAmount + 100);
+        }
+
+    };
+
+    const handleChangeDailyContinentalBreakfast = () => {
+        var dailyContinentalBreakfast = document.getElementById("dailyContinentalBreakfast").checked;
+        setDailyContinentalBreakfast(!dailyContinentalBreakfast);
+        console.log("dailyContinentalBreakfast:" + dailyContinentalBreakfast);
+        if (dailyContinentalBreakfast == false) {
+            settotalAmount(totalAmount - 10);
+        }
+        else {
+            settotalAmount(totalAmount + 10);
+        }
+
+    };
+
+    const handleChangeAccessToFitnessRoom = () => {
+        var accessToFitnessRoom = document.getElementById("accessToFitnessRoom").checked;
+        setAccessToFitnessRoom(!accessToFitnessRoom);
+        console.log("accessToFitnessRoom:" + accessToFitnessRoom);
+        if (accessToFitnessRoom == false) {
+            settotalAmount(totalAmount - 15);
+        }
+        else {
+            settotalAmount(totalAmount + 15);
+        }
+
+    };
+
+    const handleChangeToSwimmingPoolOrJacuzzi = () => {
+        var accessToSwimmingPoolJacuzzi = document.getElementById("accessToSwimmingPoolJacuzzi").checked;
+        setAccessToSwimmingPoolJacuzzi(!accessToSwimmingPoolJacuzzi);
+        console.log("accessToSwimmingPoolJacuzzi:" + accessToSwimmingPoolJacuzzi);
+        if (accessToSwimmingPoolJacuzzi == false) {
+            settotalAmount(totalAmount - 18);
+        }
+        else {
+            settotalAmount(totalAmount + 18);
+        }
+
+    };
+
+    const handleChangeToDailyParking = () => {
+        var accessToDailyParking = document.getElementById("accessToDailyParking").checked;
+        setAccessToDailyParking(!accessToDailyParking);
+        console.log("accessToDailyParking:" + accessToDailyParking);
+        if (accessToDailyParking == false) {
+            settotalAmount(totalAmount - 20);
+        }
+        else {
+            settotalAmount(totalAmount + 20);
+        }
+
+    };
+
+    const handleChangetoAllMealsIncluded = () => {
+        var accessToAllMealsIncluded = document.getElementById("accessToAllMealsIncluded").checked;
+       
+        console.log("accessToAllMealsIncluded:" + accessToAllMealsIncluded);
+        setAccessToAllMealsIncluded(!accessToAllMealsIncluded);
+        console.log("accessToAllMealsIncluded:" + accessToAllMealsIncluded);
+        if (accessToAllMealsIncluded == false) {
+            settotalAmount(totalAmount - 25);
+        }
+        else {
+            settotalAmount(totalAmount + 25);
         }
 
     };
@@ -148,19 +223,30 @@ function Bookingscreen({ match }) {
 
                         <br></br>
                         <br></br>
+                        <br></br>
                         <div class="form-check form-check-inline">
                         
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
-                                <label class="form-check-label" for="inlineCheckbox1">Gym</label>
+                            <input class="form-check-input" type="checkbox" onChange={handleChangeDailyContinentalBreakfast} id="dailyContinentalBreakfast" value="option1"/>
+                                <label class="form-check-label" for="inlineCheckbox1">Daily Continental Breakfast (10$)</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
-                                <label class="form-check-label" for="inlineCheckbox2">Air Conditioning</label>
+                            <input class="form-check-input" type="checkbox" onChange={handleChangeAccessToFitnessRoom} id="accessToFitnessRoom" value="option2"/>
+                                <label class="form-check-label" for="inlineCheckbox2">Fitness Room (15$)</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"/>
-                                <label class="form-check-label" for="inlineCheckbox3">Water Bottle</label>
+                            <input class="form-check-input" type="checkbox" onChange={handleChangeToSwimmingPoolOrJacuzzi} id="accessToSwimmingPoolJacuzzi" value="option3"/>
+                                <label class="form-check-label" for="inlineCheckbox3">Swimming Pool/Jacuzzi (18$)</label>
                         </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" onChange={handleChangeToDailyParking} id="accessToDailyParking" value="option3"/>
+                                <label class="form-check-label" for="inlineCheckbox3">Daily Parking (20$)</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" onChange={handleChangetoAllMealsIncluded} id="accessToAllMealsIncluded" value="option3"/>
+                                <label class="form-check-label" for="inlineCheckbox3">All Meals Included  (25$)</label>
+                        </div>
+
+                        <br></br>
                         <div className='mt-5'>
                             <p>Total rewards: &nbsp; {rewards}</p>
                             <h1><b>Amount</b></h1>
