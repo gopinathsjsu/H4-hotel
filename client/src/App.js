@@ -12,24 +12,24 @@ import Helpscreen from "./screens/Helpscreen";
 import Landingscreen from "./screens/Landingscreen";
 import Adminscreen from "./screens/Adminscreen";
 import './App.css'
-import hotelimage from "./images/back.png";
+// import hotelimage from "./images/back.png";
     
 function App() {
 
 
   return (
 
-    <div
-    class="bg_image"
-    style={{
-      backgroundImage: 'url('+hotelimage+')',
-      backgroundSize: "cover",
-      height: "280vh",
-      color: "#f5f5f5",
+  //   <div
+  //   class="bg_image"
+  //   style={{
+  //     backgroundImage: 'url('+hotelimage+')',
+  //     backgroundSize: "cover",
+  //     height: "280vh",
+  //     color: "#f5f5f5",
       
-      backgroundRepeat: 'no-repeat'
-    }}
-  >
+  //     backgroundRepeat: 'no-repeat'
+  //   }}
+  // >
 
     
     <div className="App">
@@ -46,7 +46,7 @@ function App() {
          <Route path="/admin" component={Adminscreen}/>
       </BrowserRouter>
     </div>
-    </div>
+    // </div>
   );
 }
 

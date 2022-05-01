@@ -27,8 +27,10 @@ function Bookingscreen({ match }) {
     const todate = moment(match.params.todate, 'DD-MM-YYYY')
     const totalDays = moment.duration(todate.diff(fromdate)).asDays() + 1
     const [totalAmount, settotalAmount] = useState(0)
+    const [surgePricingMessage, setSurgePricingMessage] = useState('')
     const [rewards, setRewards] = useState([]);
     const [checked, setChecked] = useState(false);
+    const [isWeekendPresent, setIsWeekend] = useState(false);
     const [dailyContinentalBreakfast, setDailyContinentalBreakfast] = useState(false);
     const [accessToFitnessRoom, setAccessToFitnessRoom] = useState(false);
     const [accessToSwimmingPoolJacuzzi, setAccessToSwimmingPoolJacuzzi] = useState(false);
@@ -36,7 +38,21 @@ function Bookingscreen({ match }) {
     const [accessToAllMealsIncluded, setAccessToAllMealsIncluded] = useState(false);
 
 
-
+    function isWeekend(date1, date2) {
+        var d1 = new Date(date1),
+            d2 = new Date(date2), 
+            isWeekend = false;
+    
+            console.log("d1: " + d1);
+            console.log("d2: " + d2);
+        while (d1 < d2) {
+            var day = d1.getDay();
+            isWeekend = (day === 6) || (day === 0); 
+            if (isWeekend) { return true; } // return immediately if weekend found
+            d1.setDate(d1.getDate() + 1);
+        }
+        return false;
+    }
 
     useEffect(async () => {
 
@@ -46,7 +62,21 @@ function Bookingscreen({ match }) {
             console.log(data);
             setroom(data);
             setloading(false);
-            settotalAmount(data.rentperday * totalDays)
+            console.log("fromdate: " + match.params.fromdate);
+            console.log("todate: " + match.params.todate);
+            console.log("isWeekend: " + isWeekend(match.params.fromdate, match.params.todate));
+            var isWeekendIdentified = isWeekend(fromdate, todate);
+            console.log("isWeekendIdentified: " + isWeekendIdentified);
+            setIsWeekend(isWeekendIdentified);
+            
+
+            var totalAmount = data.rentperday * totalDays;
+            if (isWeekendIdentified) {
+                setSurgePricingMessage("You have a weekend in the above date range. An extra charge of 0.15% will be applied for the weekend.")
+                totalAmount = totalAmount + totalAmount * 0.15;
+            }
+
+            settotalAmount(totalAmount)
 
             var retrievedData = JSON.parse(localStorage.getItem('currentUser'));
             console.log(retrievedData.email)
@@ -182,7 +212,7 @@ function Bookingscreen({ match }) {
 
     const handleChangetoAllMealsIncluded = () => {
         var accessToAllMealsIncluded = document.getElementById("accessToAllMealsIncluded").checked;
-       
+
         console.log("accessToAllMealsIncluded:" + accessToAllMealsIncluded);
         setAccessToAllMealsIncluded(!accessToAllMealsIncluded);
         console.log("accessToAllMealsIncluded:" + accessToAllMealsIncluded);
@@ -219,6 +249,9 @@ function Bookingscreen({ match }) {
                             <p><b>From Date</b> : {match.params.fromdate}</p>
                             <p><b>To Date</b> : {match.params.todate}</p>
                             <p><b>Max Count </b>: {room.maxcount}</p>
+                            <p><b>Apply Surge Pricing </b>: {isWeekendPresent ? "True" : "False"}</p>
+                            <p><b>{surgePricingMessage}</b></p>
+                          
                         </div>
                         <div class="form-check form-check-inline">
                             <input type="checkbox" id="rewards" onChange={handleChange} name="rewards" align="left" />
@@ -229,25 +262,25 @@ function Bookingscreen({ match }) {
                         <br></br>
                         <br></br>
                         <div class="form-check form-check-inline">
-                        
-                            <input class="form-check-input" type="checkbox" onChange={handleChangeDailyContinentalBreakfast} id="dailyContinentalBreakfast" value="option1"/>
-                                <label class="form-check-label" for="inlineCheckbox1">Daily Continental Breakfast (10$)</label>
+
+                            <input class="form-check-input" type="checkbox" onChange={handleChangeDailyContinentalBreakfast} id="dailyContinentalBreakfast" value="option1" />
+                            <label class="form-check-label" for="inlineCheckbox1">Daily Continental Breakfast (10$)</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" onChange={handleChangeAccessToFitnessRoom} id="accessToFitnessRoom" value="option2"/>
-                                <label class="form-check-label" for="inlineCheckbox2">Fitness Room (15$)</label>
+                            <input class="form-check-input" type="checkbox" onChange={handleChangeAccessToFitnessRoom} id="accessToFitnessRoom" value="option2" />
+                            <label class="form-check-label" for="inlineCheckbox2">Fitness Room (15$)</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" onChange={handleChangeToSwimmingPoolOrJacuzzi} id="accessToSwimmingPoolJacuzzi" value="option3"/>
-                                <label class="form-check-label" for="inlineCheckbox3">Swimming Pool/Jacuzzi (18$)</label>
+                            <input class="form-check-input" type="checkbox" onChange={handleChangeToSwimmingPoolOrJacuzzi} id="accessToSwimmingPoolJacuzzi" value="option3" />
+                            <label class="form-check-label" for="inlineCheckbox3">Swimming Pool/Jacuzzi (18$)</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" onChange={handleChangeToDailyParking} id="accessToDailyParking" value="option3"/>
-                                <label class="form-check-label" for="inlineCheckbox3">Daily Parking (20$)</label>
+                            <input class="form-check-input" type="checkbox" onChange={handleChangeToDailyParking} id="accessToDailyParking" value="option3" />
+                            <label class="form-check-label" for="inlineCheckbox3">Daily Parking (20$)</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" onChange={handleChangetoAllMealsIncluded} id="accessToAllMealsIncluded" value="option3"/>
-                                <label class="form-check-label" for="inlineCheckbox3">All Meals Included  (25$)</label>
+                            <input class="form-check-input" type="checkbox" onChange={handleChangetoAllMealsIncluded} id="accessToAllMealsIncluded" value="option3" />
+                            <label class="form-check-label" for="inlineCheckbox3">All Meals Included  (25$)</label>
                         </div>
 
                         <br></br>
