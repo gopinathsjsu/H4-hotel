@@ -30,15 +30,11 @@ function Navbar() {
         <a className="navbar-brand" href="/">
           F4Hotels
         </a>
-        <a className="navbar-brand" href="/">
-          Destinations
-        </a>
+      
         <a className="navbar-brand" href="../HelpScreen">
           Help
         </a>
-        <a className="navbar-brand" href="/">
-          Services
-        </a>
+        
         <button
           className="navbar-toggler"
           type="button"
