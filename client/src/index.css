@@ -83,6 +83,12 @@ p{
 .landing{
   
   height:calc(100vh) !important;
+  background-image: url(./images/back.jpg);
+  background-size: "cover";
+  height: 150vh;
+
+  font-size:50px;
+  /* background-repeat:no-repeat;  */
   background-color:rgb(0, 0, 0) !important;
   
 }
@@ -91,3 +97,4 @@ p{
   color:black !important;
   margin-top: 10px !important;
 }
+

@@ -8,11 +8,30 @@ import Registerscreen from "./screens/Registerscreen";
 import 'antd/dist/antd.css';
 import Bookingscreen from "./screens/Bookingscreen";
 import Profilescreen from "./screens/Profilescreen";
+import Helpscreen from "./screens/Helpscreen";
 import Landingscreen from "./screens/Landingscreen";
 import Adminscreen from "./screens/Adminscreen";
-
+import './App.css'
+import hotelimage from "./images/back.png";
+    
 function App() {
+
+
   return (
+
+    <div
+    class="bg_image"
+    style={{
+      backgroundImage: 'url('+hotelimage+')',
+      backgroundSize: "cover",
+      height: "280vh",
+      color: "#f5f5f5",
+      
+      backgroundRepeat: 'no-repeat'
+    }}
+  >
+
+    
     <div className="App">
       <Navbar />
       <BrowserRouter>
@@ -23,8 +42,10 @@ function App() {
          <Route path="/register" component={Registerscreen}/>
          <Route path="/book/:roomid/:fromdate/:todate" component={Bookingscreen}/>
          <Route path="/profile" component={Profilescreen}/>
+         <Route path="/HelpScreen" component={Helpscreen}/>
          <Route path="/admin" component={Adminscreen}/>
       </BrowserRouter>
+    </div>
     </div>
   );
 }
