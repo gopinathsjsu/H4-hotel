@@ -28,9 +28,17 @@ function Bookingscreen({ match }) {
     const totalDays = moment.duration(todate.diff(fromdate)).asDays() + 1
     const [totalAmount, settotalAmount] = useState(0)
     const [surgePricingMessage, setSurgePricingMessage] = useState('')
+    const [summerPricingMessage, setSummerPricingMessage] = useState('')
+    const [christmasPricingMessage, setChristmasPricingMessage] = useState('')
     const [rewards, setRewards] = useState([]);
     const [checked, setChecked] = useState(false);
     const [isWeekendPresent, setIsWeekend] = useState(false);
+    const [weekendAdditonalCharges, setWeekendAdditionalCharges] = useState(0);
+    const [isSummerPricingApplied, setIsSummerPricingApplied] = useState(false);
+    const [summerAdditionalCharges, setSummerAdditionalCharges] = useState(0);
+    const [isChristmasPricingApplied, setIsChristmasPricingApplied] = useState(false);
+    const [christmasAdditionalCharges, setChristmasAdditionalCharges] = useState(0);
+
     const [dailyContinentalBreakfast, setDailyContinentalBreakfast] = useState(false);
     const [accessToFitnessRoom, setAccessToFitnessRoom] = useState(false);
     const [accessToSwimmingPoolJacuzzi, setAccessToSwimmingPoolJacuzzi] = useState(false);
@@ -54,6 +62,44 @@ function Bookingscreen({ match }) {
         return false;
     }
 
+    function isInMay(from) {
+
+        var fDate;
+        fDate = new Date(from);
+        console.log("fDate month: " + fDate.getMonth())
+    
+        if(fDate.getMonth() == 4) {
+            return true;
+        }
+        return false;
+    }
+
+    function isInDecember(from) {
+
+        var fDate;
+        fDate = new Date(from);
+    
+    
+        if(fDate.getMonth() == 11) {
+            return true;
+        }
+        return false;
+    }
+
+    function dateCheck(from,to,check) {
+
+        var fDate,lDate,cDate;
+        fDate = Date.parse(from);
+        lDate = Date.parse(to);
+        cDate = Date.parse(check);
+    
+    
+        if((cDate <= lDate && cDate >= fDate)) {
+            return true;
+        }
+        return false;
+    }
+
     useEffect(async () => {
 
         try {
@@ -68,12 +114,40 @@ function Bookingscreen({ match }) {
             var isWeekendIdentified = isWeekend(fromdate, todate);
             console.log("isWeekendIdentified: " + isWeekendIdentified);
             setIsWeekend(isWeekendIdentified);
-            
+            var isSummerPricingApplied = isInMay(fromdate);
+            console.log("isSummerPricingApplied: " + isSummerPricingApplied);
+          
+            setIsSummerPricingApplied(isSummerPricingApplied);
+
+         
+
+            var isChristmasPricingApplied = isInDecember(fromdate);
+            console.log("isChristmasPricingApplied: " + isChristmasPricingApplied);
+            setIsChristmasPricingApplied(isChristmasPricingApplied);
 
             var totalAmount = data.rentperday * totalDays;
+            var totalAmountBefore = totalAmount;
+
+            if (isSummerPricingApplied) {
+                var summerAdditionalCharges = totalAmountBefore * 0.02;
+                setSummerAdditionalCharges(summerAdditionalCharges);
+                setSummerPricingMessage("* Additonal Price (0.02%) may be applied for the summer.")
+                totalAmount = totalAmount + summerAdditionalCharges;
+            }
+
+            if (isChristmasPricingApplied) {
+                var christmasAdditionalCharges = totalAmountBefore * 0.05;
+                setChristmasAdditionalCharges(christmasAdditionalCharges);
+                setChristmasPricingMessage("* Additional Price (0.05%) may be applied for the Christmas.")
+                totalAmount = totalAmount + christmasAdditionalCharges;
+            }
+
+           
             if (isWeekendIdentified) {
-                setSurgePricingMessage("You have a weekend in the above date range. An extra charge of 0.15% will be applied for the weekend.")
-                totalAmount = totalAmount + totalAmount * 0.15;
+                var weekendAdditonalCharges = totalAmountBefore * 0.15;
+                setWeekendAdditionalCharges(weekendAdditonalCharges);
+                setSurgePricingMessage("* You have a weekend in the above date range. An extra charge of (0.15%) will be applied for the weekend.")
+                totalAmount = totalAmount + weekendAdditonalCharges;
             }
 
             settotalAmount(totalAmount)
@@ -249,8 +323,13 @@ function Bookingscreen({ match }) {
                             <p><b>From Date</b> : {match.params.fromdate}</p>
                             <p><b>To Date</b> : {match.params.todate}</p>
                             <p><b>Max Count </b>: {room.maxcount}</p>
-                            <p><b>Apply Surge Pricing </b>: {isWeekendPresent ? "True" : "False"}</p>
-                            <p><b>{surgePricingMessage}</b></p>
+                            <p><b>Surge Pricing Applied</b>: {isWeekendPresent ? "True" : "False"}</p>
+                            <p><b>Summer Pricing Applied</b>: {isSummerPricingApplied ? "True" : "False"}</p>
+                            <p><b>Christmas Pricing Applied</b>: {isChristmasPricingApplied ? "True" : "False"}</p>
+
+                            <p className='alert'><b>{surgePricingMessage}</b></p>
+                            <p className='alert'><b>{summerPricingMessage}</b></p>
+                            <p className='alert'><b>{christmasPricingMessage}</b></p>
                           
                         </div>
                         <div class="form-check form-check-inline">
@@ -290,6 +369,10 @@ function Bookingscreen({ match }) {
                             <hr />
                             <p>Total Days : <b>{totalDays}</b></p>
                             <p>Rent Per Day : <b>{room.rentperday}</b></p>
+                            <p>Total Amount (Before additional charges): <b>{totalDays * room.rentperday}</b></p>
+                            <p>Weekend Pricing (if applicable): <b>{weekendAdditonalCharges}</b></p>
+                            <p>Summer Pricing (if applicable): <b>{summerAdditionalCharges}</b></p>
+                            <p>Christmas Pricing (if applicable): <b>{christmasAdditionalCharges}</b></p>
                             <h1><b>Total Amount : {totalAmount} /-</b></h1>
 
                             <StripeCheckout
