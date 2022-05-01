@@ -73,10 +73,13 @@ function Bookingscreen({match}) {
             console.log(reqdata[0].rewards);
             setRewards(reqdata[0].rewards);
             var reqdata2 = reqdata[0].rewards;
-            if(checked==false){
-                reqdata2 = reqdata2 - 100;
+            if(checked === true){
+                //reqdata2 = reqdata2 - 100;
+                axios.put('/api/users/reducereward',{email:reqdata[0].email,reward: reqdata2});
             }
-            const req2 = axios.put('/api/users/updatereward',{email:reqdata[0].email,reward: reqdata2});
+            else{
+                const req2 = axios.put('/api/users/updatereward',{email:reqdata[0].email,reward: reqdata2});
+            }
           }
 
         try {
