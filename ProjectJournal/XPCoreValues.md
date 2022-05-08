@@ -1,7 +1,7 @@
-Shubhada Paithankar - Communication
 
-Soumya Perala - Courage
+## XP Core Values Implemented:
 
-Sai Yashwanth Reddy Gunturu - Simplicity
-
-Hashmitha Katta - Feedback
+1. Shubhada Paithankar - Communication
+2. Soumya Perala - Courage
+3. Sai Yashwanth Reddy Gunturu - Simplicity
+4. Hashmitha Katta - Feedback
