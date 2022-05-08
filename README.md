@@ -23,6 +23,14 @@ The primary goal of any website-based project is to establish an interactive use
 ## Scrum meetings schedule:
 Every Sunday
 
+## Responsibilities:
+
+1. Frontend: Soumya , Yashwanth
+2. Backend and Database: Shubhada , Hashmitha 
+3. Project documentation and Deployment diagrams:  Soumya, Yashwanth, Shubhada, Hashmitha  
+4. UML diagrams: Shubhada, Hashmitha, Soumya, Yashwanth
+5. Deployment: Soumya, Yashwanth, Shubhada, Hashmitha 
+
 ## Project Board 
 
 https://github.com/gopinathsjsu/team-project-thefantasticfour/projects/1
