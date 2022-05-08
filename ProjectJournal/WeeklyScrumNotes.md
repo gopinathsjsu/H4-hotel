@@ -9,11 +9,10 @@
 #### Shubhada
 
 Q1. What tasks did I work on / complete?
- - Setup Node.Js and Express.
- - Worked on DB design
+ - Working on making a decision about technologies (MERN stack)
 
 Q2. What am I planning to work on next?
- - Write script to get cities of the world and update it in DB
+ - Brainstorming about technologies
 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
@@ -21,32 +20,32 @@ Q3. What tasks are blocked waiting on another team member?
 #### Soumya
 
 Q1. What tasks did I work on / complete?
- - Completed Db setup. [Created db on RDS and created models in node]  
+ - Working on making a decision about technologies (MERN stack)
 
 Q2. What am I planning to work on next?
- - Implement User routes: Login, Registration, Profile  
-
+ - Find candidates for frontend and backend technologies
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Yashwanth
 
 Q1. What tasks did I work on / complete?  
- - Discussed and finalized various features that should be present in the application
+ - Working on making a decision about technologies (MERN stack)
 
 Q2. What am I planning to work on next?
- - Setting up React and other Frontend tools for development
-
+ - Creating UI wireframes
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Hashmitha
 
 Q1. What tasks did I work on / complete?  
- - Researched about the technologies that we are going to use in the project.  
+ - Working on making a decision about technologies (MERN stack)
 
 Q2. What am I planning to work on next?  
- - Plan UI wireframes (basic workflow of the website)
+ - Design Landing Page
  
 Q3. What tasks are blocked waiting on another team member?
  - N/A
@@ -58,44 +57,43 @@ Q3. What tasks are blocked waiting on another team member?
 #### Shubhada
 
 Q1. What tasks did I work on / complete?
- - Setup Node.Js and Express.
- - Worked on DB design
+ - Backend code for Login Page
 
 Q2. What am I planning to work on next?
- - Write script to get cities of the world and update it in DB
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Soumya
 
 Q1. What tasks did I work on / complete?
- - Completed Db setup. [Created db on RDS and created models in node]  
-
+ - Frontend code for login page
+ 
 Q2. What am I planning to work on next?
- - Implement User routes: Login, Registration, Profile  
-
+ - Complete Regression Testing
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Yashwanth
 
 Q1. What tasks did I work on / complete?  
- - Discussed and finalized various features that should be present in the application
-
+ - MpngpDB connectivity for Login Page
+ 
 Q2. What am I planning to work on next?
- - Setting up React and other Frontend tools for development
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Hashmitha
 
 Q1. What tasks did I work on / complete?  
- - Researched about the technologies that we are going to use in the project.  
-
+ - Complete Unit Testing
+ 
 Q2. What am I planning to work on next?  
- - Plan UI wireframes (basic workflow of the website)
+ - Write Documentation 
  
 Q3. What tasks are blocked waiting on another team member?
  - N/A
@@ -107,44 +105,44 @@ Q3. What tasks are blocked waiting on another team member?
 #### Shubhada
 
 Q1. What tasks did I work on / complete?
- - Setup Node.Js and Express.
- - Worked on DB design
+ - Complete Unit Testing
+ 
 
 Q2. What am I planning to work on next?
- - Write script to get cities of the world and update it in DB
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Soumya
 
 Q1. What tasks did I work on / complete?
- - Completed Db setup. [Created db on RDS and created models in node]  
-
+ - Mpngo DB connectivity for Signup Page
+ 
 Q2. What am I planning to work on next?
- - Implement User routes: Login, Registration, Profile  
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Yashwanth
 
 Q1. What tasks did I work on / complete?  
- - Discussed and finalized various features that should be present in the application
-
+ - Frontend code for Signup Page
+ 
 Q2. What am I planning to work on next?
- - Setting up React and other Frontend tools for development
-
+ - Complete Regression Testing
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Hashmitha
 
 Q1. What tasks did I work on / complete?  
- - Researched about the technologies that we are going to use in the project.  
-
+ - Backend Code For Signup Page
+ 
 Q2. What am I planning to work on next?  
- - Plan UI wireframes (basic workflow of the website)
+ - Write Documentation
  
 Q3. What tasks are blocked waiting on another team member?
  - N/A
@@ -156,11 +154,10 @@ Q3. What tasks are blocked waiting on another team member?
 #### Shubhada
 
 Q1. What tasks did I work on / complete?
- - Setup Node.Js and Express.
- - Worked on DB design
-
+ - Backend code for Hotel Search By Date
+ 
 Q2. What am I planning to work on next?
- - Write script to get cities of the world and update it in DB
+ - Write Documentation
 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
@@ -168,32 +165,32 @@ Q3. What tasks are blocked waiting on another team member?
 #### Soumya
 
 Q1. What tasks did I work on / complete?
- - Completed Db setup. [Created db on RDS and created models in node]  
-
+ - Frontend code for Hotel Search By Date
+ 
 Q2. What am I planning to work on next?
- - Implement User routes: Login, Registration, Profile  
-
+ - Complete Regression Testing
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Yashwanth
 
 Q1. What tasks did I work on / complete?  
- - Discussed and finalized various features that should be present in the application
-
+ - MongoDB connectivity for Hotel Search By Date
+ 
 Q2. What am I planning to work on next?
- - Setting up React and other Frontend tools for development
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Hashmitha
 
 Q1. What tasks did I work on / complete?  
- - Researched about the technologies that we are going to use in the project.  
-
+ - Complete Unit Testing 
+ 
 Q2. What am I planning to work on next?  
- - Plan UI wireframes (basic workflow of the website)
+ - Write Documentation 
  
 Q3. What tasks are blocked waiting on another team member?
  - N/A
@@ -206,44 +203,43 @@ Q3. What tasks are blocked waiting on another team member?
 #### Shubhada
 
 Q1. What tasks did I work on / complete?
- - Setup Node.Js and Express.
- - Worked on DB design
+ - Complete Unit Testing
 
 Q2. What am I planning to work on next?
- - Write script to get cities of the world and update it in DB
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Soumya
 
 Q1. What tasks did I work on / complete?
- - Completed Db setup. [Created db on RDS and created models in node]  
-
+ - MongoDb connectivity for Hotel Search By Location
+ 
 Q2. What am I planning to work on next?
- - Implement User routes: Login, Registration, Profile  
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Yashwanth
 
 Q1. What tasks did I work on / complete?  
- - Discussed and finalized various features that should be present in the application
-
+ - Frontend code for Hotel Search By Location
+ 
 Q2. What am I planning to work on next?
- - Setting up React and other Frontend tools for development
-
+ - Complete Regression Testing
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Hashmitha
 
 Q1. What tasks did I work on / complete?  
- - Researched about the technologies that we are going to use in the project.  
-
+ - Backend code for Hotel Search By Location
+ 
 Q2. What am I planning to work on next?  
- - Plan UI wireframes (basic workflow of the website)
+ - Write Documentation
  
 Q3. What tasks are blocked waiting on another team member?
  - N/A
@@ -255,44 +251,43 @@ Q3. What tasks are blocked waiting on another team member?
 #### Shubhada
 
 Q1. What tasks did I work on / complete?
- - Setup Node.Js and Express.
- - Worked on DB design
-
+ - Backend code for Hotel Search By Date
+ 
 Q2. What am I planning to work on next?
- - Write script to get cities of the world and update it in DB
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Soumya
 
 Q1. What tasks did I work on / complete?
- - Completed Db setup. [Created db on RDS and created models in node]  
-
+ - Frontend code for Hotel Search By Date
+ 
 Q2. What am I planning to work on next?
- - Implement User routes: Login, Registration, Profile  
-
+ - Complete Regression Testing
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Yashwanth
 
 Q1. What tasks did I work on / complete?  
- - Discussed and finalized various features that should be present in the application
-
+ - MongoDB connectivity for Hotel Search By Date
+ 
 Q2. What am I planning to work on next?
- - Setting up React and other Frontend tools for development
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Hashmitha
 
 Q1. What tasks did I work on / complete?  
- - Researched about the technologies that we are going to use in the project.  
-
+ - Complete Unit Testing
+ 
 Q2. What am I planning to work on next?  
- - Plan UI wireframes (basic workflow of the website)
+ - Write Documentation
  
 Q3. What tasks are blocked waiting on another team member?
  - N/A
@@ -304,44 +299,41 @@ Q3. What tasks are blocked waiting on another team member?
 #### Shubhada
 
 Q1. What tasks did I work on / complete?
- - Setup Node.Js and Express.
- - Worked on DB design
+ - Complete Unit Testing
 
 Q2. What am I planning to work on next?
- - Write script to get cities of the world and update it in DB
-
+ - Write Documentation
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Soumya
 
 Q1. What tasks did I work on / complete?
- - Completed Db setup. [Created db on RDS and created models in node]  
-
+ - MongoDB connectivity for Hotel Search By Location
+ 
 Q2. What am I planning to work on next?
- - Implement User routes: Login, Registration, Profile  
-
+ - Write Documentation
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Yashwanth
 
 Q1. What tasks did I work on / complete?  
- - Discussed and finalized various features that should be present in the application
-
+ - Frontend code for Hotel Search By Location
+ 
 Q2. What am I planning to work on next?
- - Setting up React and other Frontend tools for development
-
+ - Regression Testing
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Hashmitha
 
 Q1. What tasks did I work on / complete?  
- - Researched about the technologies that we are going to use in the project.  
-
+ - Backend code for Hotel Search By Location
+ 
 Q2. What am I planning to work on next?  
- - Plan UI wireframes (basic workflow of the website)
+ - Write Documentation
  
 Q3. What tasks are blocked waiting on another team member?
  - N/A
@@ -353,44 +345,43 @@ Q3. What tasks are blocked waiting on another team member?
 #### Shubhada
 
 Q1. What tasks did I work on / complete?
- - Setup Node.Js and Express.
- - Worked on DB design
+ - Backend code for Hotel Booking
 
 Q2. What am I planning to work on next?
- - Write script to get cities of the world and update it in DB
-
+ - Write Documentation
+ - 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Soumya
 
 Q1. What tasks did I work on / complete?
- - Completed Db setup. [Created db on RDS and created models in node]  
-
+ - Frontend Code for Hotel Booking
+ 
 Q2. What am I planning to work on next?
- - Implement User routes: Login, Registration, Profile  
-
+ - Complete Regression Testing
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Yashwanth
 
 Q1. What tasks did I work on / complete?  
- - Discussed and finalized various features that should be present in the application
-
+ - MongoDB connectivity for Hotel Booking
+ 
 Q2. What am I planning to work on next?
- - Setting up React and other Frontend tools for development
-
+ - Write Documentation
+ 
 Q3. What tasks are blocked waiting on another team member? 
  - N/A
 
 #### Hashmitha
 
 Q1. What tasks did I work on / complete?  
- - Researched about the technologies that we are going to use in the project.  
-
+ - Complete Unit Testing
+ 
 Q2. What am I planning to work on next?  
- - Plan UI wireframes (basic workflow of the website)
+ - Write Documentation
  
 Q3. What tasks are blocked waiting on another team member?
  - N/A
