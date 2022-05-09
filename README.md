@@ -63,9 +63,9 @@ https://github.com/gopinathsjsu/team-project-thefantasticfour/blob/main/ProjectJ
 
 ![Untitled presentation](https://user-images.githubusercontent.com/99461999/167325408-8e4a7459-b7e8-482f-8a4b-df106cc22c6f.png)
 
-
-
 ### Deployment Diagram
+
+![Untitled presentation](https://user-images.githubusercontent.com/99461999/167329091-25a38e67-d390-48e5-bb31-abcbf674dc7b.png)
 
 ### Cloudwatch - Packets In/Out & CPU Utilisation
 
