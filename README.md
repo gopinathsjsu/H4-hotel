@@ -61,7 +61,8 @@ https://github.com/gopinathsjsu/team-project-thefantasticfour/blob/main/ProjectJ
 
 ### Architecture Diagram
 
-<img width="883" alt="image" src="https://user-images.githubusercontent.com/98585812/164783338-1ea327b4-20d1-4e88-b84f-13a384ac30fb.png">
+![Untitled presentation](https://user-images.githubusercontent.com/99461999/167325408-8e4a7459-b7e8-482f-8a4b-df106cc22c6f.png)
+
 
 
 ### Deployment Diagram
