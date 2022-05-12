@@ -131,7 +131,7 @@ function Homescreen() {
             <input
               type="text"
               className="form-control i2 m-2"
-              placeholder='Search Rooms'
+              placeholder='Search Hotels'
               value={searchkey}
               onKeyUp={filterBySearch}
               onChange={(e)=>{setsearchkey(e.target.value)}}
@@ -147,7 +147,7 @@ function Homescreen() {
 /> */}
 <select className="form-control m-2" value={location} onChange={(e)=>{filterByLocation(e.target.value)}} >
 
-<option value="all">All</option>
+<option value="all">Select Location</option>
   <option value="Montery">Montery</option>
   <option value="san Jose">San Jose</option>
   <option value="san Francisco">San Francisco</option>
@@ -159,9 +159,9 @@ function Homescreen() {
           <div className="col-md-3">
             <select className="form-control m-2" value={type} onChange={(e)=>{filterByType(e.target.value)}} >
 
-            <option value="all">All</option>
-              <option value="delux">Delux</option>
-              <option value="non-delux">Non Delux</option>
+            <option value="all">Select Room Type</option>
+              <option value="delux">Deluxe</option>
+              <option value="non-delux">Non Deluxe</option>
               
             </select>
           </div>
