@@ -76,10 +76,10 @@ export default function Registerscreen() {
               required
               onChange={(e)=>{setcpassword(e.target.value)}}
             />
-              <div class="rewards">
+              {/* <div class="rewards">
   <input type="checkbox" id="rewards" name="rewards"/>
   <label for="rewards">Opt in for Rewards</label>
-</div>
+</div> */}
             <button onClick={register} className="btn btn-primary rounded-pill mt-3 mb-3">REGISTER</button>
             <br/>
             <a style={{color:'black'}} href="/login">Click Here To Login</a>
