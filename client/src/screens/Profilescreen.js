@@ -18,10 +18,6 @@ function Profilescreen() {
             <div className="col-md-6 bs m-2 p-3">
               <h1>Name : {user.name}</h1>
               <h1>Email : {user.email}</h1>
-              <h1>Admin Access : {user.isAdmin ? "Yes" : "No"}</h1>
-              <div className='text-right'>
-                <button className='btn btn-primary'>Get Admin Access</button>
-              </div>
             </div>
           </div>
         </TabPane>
