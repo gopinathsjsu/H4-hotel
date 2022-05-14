@@ -1,6 +1,6 @@
 # F4Hotels.com
 
-## Team Members :
+## Team Members 
 1. Shubhada Paithankar
 2. Soumya Perala 
 3. Sai Yashwanth Reddy Gunturu 
@@ -70,7 +70,6 @@ https://github.com/gopinathsjsu/team-project-thefantasticfour/blob/main/ProjectJ
 ### Deployment Diagram
 
 ![Untitled presentation (5)](https://user-images.githubusercontent.com/99461999/167329977-3251978e-dadd-406a-abb6-992c61555535.png)
-
 
 
 ### Cloudwatch - Packets In/Out & CPU Utilisation
