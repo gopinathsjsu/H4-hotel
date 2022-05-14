@@ -12,6 +12,7 @@ import Room from "../components/Room";
 import { DatePicker, Space } from "antd";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import './screen.css';
 AOS.init();
 const { RangePicker } = DatePicker;
 var dupdate = null;
@@ -256,6 +257,7 @@ function Homescreen() {
   }
 
   return (
+    <body>
     <div className="mt-5">
       <div className="container">
         <div className="row bs p-3 m-5">
@@ -318,6 +320,7 @@ function Homescreen() {
         )}
       </div>
     </div>
+    </body>
   );
 }
 
