@@ -12,7 +12,6 @@ import Room from "../components/Room";
 import { DatePicker, Space } from "antd";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import './screen.css';
 AOS.init();
 const { RangePicker } = DatePicker;
 var dupdate = null;
@@ -38,28 +37,33 @@ function Homescreen() {
   const [location, setLocation] = useState('all')
   const [searchlockey, setsearchlockey] = useState('');
   const[type , settype]=useState('all')
+
+  function disabledDate(current) {
+    // Can not select days before today and today
+    return current && current < moment().endOf('day');
+  }
+
   function filterByDate(dates) {
-    setfromdate(moment(dates[0]).format('DD-MM-YYYY'))
-    settodate(moment(dates[1]).format('DD-MM-YYYY'))
-    
+    setfromdate(moment(dates[0]).format('MM-DD-YYYY'))
+    settodate(moment(dates[1]).format('MM-DD-YYYY'))
     var temp=[]
 
-    if(dupdate == null && dupdate1 == null && dupdate2 == null) {
-      for (var room of duplicatehotes) {
+    function confirmBooking(filtered_hotels){
+      for (var room of filtered_hotels) {
         var availability = false;
 
         for (var booking of room.currentbookings) {
 
           if (room.currentbookings.length) {
             if (
-                !moment(moment(dates[0]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) &&
-                !moment(moment(dates[1]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate)
+                !moment(moment(dates[0]).format('MM-DD-YYYY')).isBetween(booking.fromdate, booking.todate) &&
+                !moment(moment(dates[1]).format('MM-DD-YYYY')).isBetween(booking.fromdate, booking.todate)
             ) {
               if (
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.todate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.todate
+                  moment(dates[0]).format('MM-DD-YYYY') !== booking.fromdate &&
+                  moment(dates[0]).format('MM-DD-YYYY') !== booking.todate &&
+                  moment(dates[1]).format('MM-DD-YYYY') !== booking.fromdate &&
+                  moment(dates[1]).format('MM-DD-YYYY') !== booking.todate
               ) {
                 availability = true;
               }
@@ -71,90 +75,19 @@ function Homescreen() {
         }
         sethotels(temp)
       }
+    }
+
+    if(dupdate == null && dupdate1 == null && dupdate2 == null) {
+      confirmBooking(duplicatehotes)
     }
     else if(dupdate1 == null && dupdate2 == null){
-      for (var room of dupdate) {
-        var availability = false;
-
-        for (var booking of room.currentbookings) {
-
-          if (room.currentbookings.length) {
-            if (
-                !moment(moment(dates[0]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) &&
-                !moment(moment(dates[1]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate)
-            ) {
-              if (
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.todate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.todate
-              ) {
-                availability = true;
-              }
-            }
-          }
-        }
-        if (availability || room.currentbookings.length === 0) {
-          temp.push(room)
-        }
-        sethotels(temp)
-      }
+      confirmBooking(dupdate)
     }
-    else if((dupdate == null && dupdate2 == null)|| dupdate2 == null){
-      for (var room of dupdate1) {
-        var availability = false;
-
-        for (var booking of room.currentbookings) {
-
-          if (room.currentbookings.length) {
-            if (
-                !moment(moment(dates[0]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) &&
-                !moment(moment(dates[1]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate)
-            ) {
-              if (
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.todate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.todate
-              ) {
-                availability = true;
-              }
-            }
-          }
-        }
-        if (availability || room.currentbookings.length === 0) {
-          temp.push(room)
-        }
-        sethotels(temp)
-      }
+    else if((dupdate == null && dupdate2 == null) || dupdate2 == null){
+      confirmBooking(dupdate1)
     }
     else{
-      for (var room of dupdate2) {
-        var availability = false;
-
-        for (var booking of room.currentbookings) {
-
-          if (room.currentbookings.length) {
-            if (
-                !moment(moment(dates[0]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) &&
-                !moment(moment(dates[1]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate)
-            ) {
-              if (
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.todate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.todate
-              ) {
-                availability = true;
-              }
-            }
-          }
-        }
-        if (availability || room.currentbookings.length === 0) {
-          temp.push(room)
-        }
-        sethotels(temp)
-      }
+      confirmBooking(dupdate2)
     }
   }
 
@@ -257,7 +190,6 @@ function Homescreen() {
   }
 
   return (
-    <body>
     <div className="mt-5">
       <div className="container">
         <div className="row bs p-3 m-5">
@@ -300,7 +232,7 @@ function Homescreen() {
           </div>
 
           <div className="col-md-3">
-            <RangePicker style={{ height: "38px" }} onChange={filterByDate} format='DD-MM-YYYY' className='m-2'/>
+            <RangePicker disabledDate={disabledDate} placeholder={["check-in", "check-out"]} style={{ height: "38px" }} onChange={filterByDate} format='MM-DD-YY' className='m-2'/>
           </div>
 
         </div>
@@ -320,7 +252,6 @@ function Homescreen() {
         )}
       </div>
     </div>
-    </body>
   );
 }
 
