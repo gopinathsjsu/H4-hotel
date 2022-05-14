@@ -23,8 +23,8 @@ function Bookingscreen({ match }) {
     const [success, setsuccess] = useState(false)
     const [room, setroom] = useState()
     const roomid = match.params.roomid
-    const fromdate = moment(match.params.fromdate, 'DD-MM-YYYY')
-    const todate = moment(match.params.todate, 'DD-MM-YYYY')
+    const fromdate = moment(match.params.fromdate, 'MM-DD-YYYY')
+    const todate = moment(match.params.todate, 'MM-DD-YYYY')
     const totalDays = moment.duration(todate.diff(fromdate)).asDays() + 1
     const [totalAmount, settotalAmount] = useState(0)
     const [surgePricingMessage, setSurgePricingMessage] = useState('')
@@ -320,9 +320,9 @@ function Bookingscreen({ match }) {
                             <hr />
 
                             <p><b>Name</b> : {JSON.parse(localStorage.getItem('currentUser')).name}</p>
-                            <p><b>From Date</b> : {match.params.fromdate}</p>
-                            <p><b>To Date</b> : {match.params.todate}</p>
-                            <p><b>Max Count </b>: {room.maxcount}</p>
+                            <p><b>Check-in</b> : {match.params.fromdate}</p>
+                            <p><b>Check-out</b> : {match.params.todate}</p>
+                            <p><b>Number of guests allowed</b>: {room.maxcount}</p>
                             <p><b>Surge Pricing Applied</b>: {isWeekendPresent ? "True" : "False"}</p>
                             <p><b>Summer Pricing Applied</b>: {isSummerPricingApplied ? "True" : "False"}</p>
                             <p><b>Christmas Pricing Applied</b>: {isChristmasPricingApplied ? "True" : "False"}</p>
