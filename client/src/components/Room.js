@@ -17,10 +17,10 @@ function Room({ room, fromdate, todate }) {
         <h1>{room.name}</h1>
         <p>Parking , Reception , Free Wifi</p>
         <p>
-          <b>Max Count : {room.maxcount}</b>
+          <b>Number of guests allowed : {room.maxcount}</b>
         </p>
         <p>
-          <b>Phonenumber : </b>
+          <b>Contact : </b>
           {room.phonenumber}
         </p>
         <p>
