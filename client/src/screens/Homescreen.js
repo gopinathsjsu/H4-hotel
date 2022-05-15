@@ -38,28 +38,33 @@ function Homescreen() {
   const [location, setLocation] = useState('all')
   const [searchlockey, setsearchlockey] = useState('');
   const[type , settype]=useState('all')
+
+  function disabledDate(current) {
+    // Can not select days before today and today
+    return current && current < moment().endOf('day');
+  }
+
   function filterByDate(dates) {
-    setfromdate(moment(dates[0]).format('DD-MM-YYYY'))
-    settodate(moment(dates[1]).format('DD-MM-YYYY'))
-    
+    setfromdate(moment(dates[0]).format('MM-DD-YYYY'))
+    settodate(moment(dates[1]).format('MM-DD-YYYY'))
     var temp=[]
 
-    if(dupdate == null && dupdate1 == null && dupdate2 == null) {
-      for (var room of duplicatehotes) {
+    function confirmBooking(filtered_hotels){
+      for (var room of filtered_hotels) {
         var availability = false;
 
         for (var booking of room.currentbookings) {
 
           if (room.currentbookings.length) {
             if (
-                !moment(moment(dates[0]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) &&
-                !moment(moment(dates[1]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate)
+                !moment(moment(dates[0]).format('MM-DD-YYYY')).isBetween(booking.fromdate, booking.todate) &&
+                !moment(moment(dates[1]).format('MM-DD-YYYY')).isBetween(booking.fromdate, booking.todate)
             ) {
               if (
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.todate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.todate
+                  moment(dates[0]).format('MM-DD-YYYY') !== booking.fromdate &&
+                  moment(dates[0]).format('MM-DD-YYYY') !== booking.todate &&
+                  moment(dates[1]).format('MM-DD-YYYY') !== booking.fromdate &&
+                  moment(dates[1]).format('MM-DD-YYYY') !== booking.todate
               ) {
                 availability = true;
               }
@@ -71,90 +76,19 @@ function Homescreen() {
         }
         sethotels(temp)
       }
+    }
+
+    if(dupdate == null && dupdate1 == null && dupdate2 == null) {
+      confirmBooking(duplicatehotes)
     }
     else if(dupdate1 == null && dupdate2 == null){
-      for (var room of dupdate) {
-        var availability = false;
-
-        for (var booking of room.currentbookings) {
-
-          if (room.currentbookings.length) {
-            if (
-                !moment(moment(dates[0]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) &&
-                !moment(moment(dates[1]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate)
-            ) {
-              if (
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.todate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.todate
-              ) {
-                availability = true;
-              }
-            }
-          }
-        }
-        if (availability || room.currentbookings.length === 0) {
-          temp.push(room)
-        }
-        sethotels(temp)
-      }
+      confirmBooking(dupdate)
     }
-    else if((dupdate == null && dupdate2 == null)|| dupdate2 == null){
-      for (var room of dupdate1) {
-        var availability = false;
-
-        for (var booking of room.currentbookings) {
-
-          if (room.currentbookings.length) {
-            if (
-                !moment(moment(dates[0]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) &&
-                !moment(moment(dates[1]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate)
-            ) {
-              if (
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.todate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.todate
-              ) {
-                availability = true;
-              }
-            }
-          }
-        }
-        if (availability || room.currentbookings.length === 0) {
-          temp.push(room)
-        }
-        sethotels(temp)
-      }
+    else if((dupdate == null && dupdate2 == null) || dupdate2 == null){
+      confirmBooking(dupdate1)
     }
     else{
-      for (var room of dupdate2) {
-        var availability = false;
-
-        for (var booking of room.currentbookings) {
-
-          if (room.currentbookings.length) {
-            if (
-                !moment(moment(dates[0]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) &&
-                !moment(moment(dates[1]).format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate)
-            ) {
-              if (
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[0]).format('DD-MM-YYYY') !== booking.todate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.fromdate &&
-                  moment(dates[1]).format('DD-MM-YYYY') !== booking.todate
-              ) {
-                availability = true;
-              }
-            }
-          }
-        }
-        if (availability || room.currentbookings.length === 0) {
-          temp.push(room)
-        }
-        sethotels(temp)
-      }
+      confirmBooking(dupdate2)
     }
   }
 
@@ -257,70 +191,71 @@ function Homescreen() {
   }
 
   return (
-    <body>
-    <div className="mt-5">
-      <div className="container">
-        <div className="row bs p-3 m-5">
-          <div className="col-md-3">
+      <body><div className="mt-5">
+        <div className="container">
+          <div className="row bs p-3 m-5">
+            <div className="col-md-3">
 
-            {/* <Select
+              {/* <Select
   options={aquaticCreatures}
 
   onChange={e => {setsearchlockey(e.value)}}
 /> */}
-            <select className="form-control m-2" value={location} onChange={(e)=>{filterByLocation(e.target.value)}} >
+              <select className="form-control m-2" value={location} onChange={(e)=>{filterByLocation(e.target.value)}} >
 
-              <option value="all">Select Location</option>
-              <option value="Monterey">Monterey</option>
-              <option value="san Jose">San Jose</option>
-              <option value="san Francisco">San Francisco</option>
+                <option value="all">Select Location</option>
+                <option value="Monterey">Monterey</option>
+                <option value="san Jose">San Jose</option>
+                <option value="san Francisco">San Francisco</option>
 
-            </select>
+              </select>
+            </div>
+
+            <div className="col-md-3">
+              <input
+                  type="text"
+                  className="form-control i2 m-2"
+                  placeholder='Search Hotels'
+                  value={searchkey}
+                  onKeyUp={filterBySearch}
+                  onChange={(e)=>{setsearchkey(e.target.value)}}
+              />
+            </div>
+
+            <div className="col-md-3">
+              <select className="form-control m-2" value={type} onChange={(e)=>{filterByType(e.target.value)}} >
+
+                <option value="all">Select Room type</option>
+                <option value="suite">Suite</option>
+                <option value="classic">Classic</option>
+
+              </select>
+            </div>
+
+            <div className="col-md-3">
+              <RangePicker disabledDate={disabledDate} placeholder={["check-in", "check-out"]} style={{ height: "38px" }} onChange={filterByDate} format='MM-DD-YY' className='m-2'/>
+            </div>
+
           </div>
+        </div>
 
-          <div className="col-md-3">
-            <input
-                type="text"
-                className="form-control i2 m-2"
-                placeholder='Search Hotels'
-                value={searchkey}
-                onKeyUp={filterBySearch}
-                onChange={(e)=>{setsearchkey(e.target.value)}}
-            />
-          </div>
-
-          <div className="col-md-3">
-            <select className="form-control m-2" value={type} onChange={(e)=>{filterByType(e.target.value)}} >
-
-              <option value="all">Select Room type</option>
-              <option value="suite">Suite</option>
-              <option value="classic">Classic</option>
-
-            </select>
-          </div>
-
-          <div className="col-md-3">
-            <RangePicker style={{ height: "38px" }} onChange={filterByDate} format='DD-MM-YYYY' className='m-2'/>
-          </div>
-
+        <div className="row justify-content-center">
+          {loading ? (
+              <Loader />
+          ) : (
+              hotels.map((room) => {
+                return (
+                    <div className="col-md-8" data-aos='zoom-in'>
+                      <Room room={room} fromdate={fromdate} todate={todate}/>
+                    </div>
+                );
+              })
+          )}
         </div>
       </div>
+      </body>
 
-      <div className="row justify-content-center">
-        {loading ? (
-          <Loader />
-        ) : (
-          hotels.map((room) => {
-            return (
-              <div className="col-md-8" data-aos='zoom-in'>
-                <Room room={room} fromdate={fromdate} todate={todate}/>
-              </div>
-            );
-          })
-        )}
-      </div>
-    </div>
-    </body>
+
   );
 }
 
