@@ -10,6 +10,8 @@
 
 https://shubhadasanjaypait.wixsite.com/my-site-4
 
+#Load Balancer URL : http://f4-load-balancer-476989361.us-east-1.elb.amazonaws.com:3000/
+
 ## ABSTRACT
 
 To keep up with the digital transformation, there is a need to create an online presence for hotels in the tourism and hospitality industry which helps the guests to always look for information and plan accordingly beforehand. The project “F4Hotels.com” is an end-2-end hotel booking application for a specific chain of hotels with locations all around the world. The purpose of this project is to develop and implement an online reservation system for hotels, that will replace the traditional way of booking hotel rooms. There are several downsides to the traditional way of booking hotel rooms like delay in processing the guests booking, no way to cross-verify the bookings, no rewards to take advantage of etc. which will be overcome with the online presence. 
