@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
     password : {type: String , require},
     isAdmin : {type: Boolean , require , default: false},
     opt_reward: {type: Number,required:true, default:0},
-    rewards: {type: Number,required:true, default:0}
+    rewards: {type: Number,required:true, default:100}
 } , {
     timestamps : true
 })
