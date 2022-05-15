@@ -201,19 +201,27 @@ function Bookingscreen({ match }) {
         async function updateData() {
             var retrievedData = JSON.parse(localStorage.getItem('currentUser'));
             console.log(retrievedData.email)
-            const req = await axios.post('/api/users/rewards', {email: retrievedData.email});
+
+            
+            const req = await axios.post('/api/users/rewards', { email: retrievedData.email });
+
             var reqdata = req.data;
+            
             console.log(reqdata[0].rewards);
             setRewards(reqdata[0].rewards);
             var reqdata2 = reqdata[0].rewards;
 
-            if (checked === true) {
+            if(checked === true){
                 //reqdata2 = reqdata2 - 100;
-                axios.put('/api/users/reducereward', {email: reqdata[0].email, reward: reqdata2});
-            } else {
-                const req2 = axios.put('/api/users/updatereward', {email: reqdata[0].email, reward: reqdata2});
+                axios.put('/api/users/reducereward',{email:reqdata[0].email,reward: reqdata2});
+                
             }
+            else{
+                const req2 = axios.put('/api/users/updatereward',{email:reqdata[0].email,reward: reqdata2});
+            
         }
+          }
+
 
         try {
             setloading(true);
@@ -238,7 +246,14 @@ function Bookingscreen({ match }) {
         console.log("checked:" + checked);
         setChecked(!checked);
         console.log(checked);
-        if (checked == false) {
+
+        var retrievedData = JSON.parse(localStorage.getItem('currentUser'));
+        const req = axios.post('/api/users/rewards', { email: retrievedData.email });
+        var reqdata = req.data;
+        
+        console.log(reqdata[0].rewards);
+
+        if (checked == false && reqdata[0].rewards>=100) {
             settotalAmount(totalAmount - 100);
         } else {
             settotalAmount(totalAmount + 100);
