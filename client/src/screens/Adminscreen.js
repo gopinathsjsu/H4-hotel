@@ -131,7 +131,7 @@ export function Rooms() {
                                <th>Name</th>
                                <th>Type</th>
                                <th>Rent Per day</th>
-                               <th>Max Count</th>
+                               <th>Number of guests allowed</th>
                                <th>Phone Number</th>
                            </tr>
                        </thead>

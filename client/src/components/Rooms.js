@@ -34,8 +34,8 @@ function Rooms() {
                                <th>Name</th>
                                <th>Type</th>
                                <th>Rent Per day</th>
-                               <th>Max Count</th>
-                               <th>Phone Number</th>
+                               <th>Number of guests allowed</th>
+                               <th>Contact</th>
                            </tr>
                        </thead>
                        <tbody>

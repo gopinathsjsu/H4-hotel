@@ -8,7 +8,7 @@ var rooms = [
       ],
       rentperday: 1500,
     
-      type: "Delux",
+      type: "Suite",
       maxcount: 3,
       phonenumber:9989649278,
       currentbookings:[],
@@ -23,7 +23,7 @@ var rooms = [
       ],
       rentperday: 1500,
      
-      type: "Delux",
+      type: "Suite",
       maxcount: 3,
       phonenumber:9989649278,
       currentbookings:[],
@@ -38,7 +38,7 @@ var rooms = [
       ],
       rentperday: 2000,
      
-      type: "Non-Delux",
+      type: "Classic",
       maxcount: 3,
       phonenumber:9989649278,
       currentbookings:[],
@@ -53,7 +53,7 @@ var rooms = [
       ],
       "rentperday":1600,
       
-      "type":"Non-Delux",
+      "type":"Classic",
       "maxcount":4,
       "phonenumber":9989649278,
       "currentbookings":[
@@ -71,7 +71,7 @@ var rooms = [
       ],
       "rentperday":1800,
       
-      "type":"Non-Delux",
+      "type":"Classic",
       "maxcount":3,
       "phonenumber":9989649278,
       "currentbookings":[

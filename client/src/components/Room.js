@@ -1,7 +1,6 @@
 import React, { useState , useEffect } from "react";
 import { Modal, Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
 function Room({ room, fromdate, todate }) {
   
   const [show, setShow] = useState(false);
@@ -17,10 +16,10 @@ function Room({ room, fromdate, todate }) {
         <h1>{room.name}</h1>
         <p>Parking , Reception , Free Wifi</p>
         <p>
-          <b>Max Count : {room.maxcount}</b>
+          <b>Number of guests allowed : {room.maxcount}</b>
         </p>
         <p>
-          <b>Phonenumber : </b>
+          <b>Contact : </b>
           {room.phonenumber}
         </p>
         <p>
@@ -28,11 +27,10 @@ function Room({ room, fromdate, todate }) {
         </p>
 
         <div style={{ float: "right" }}>
-          
           {(fromdate && todate) && (<Link to={`/book/${room._id}/${fromdate}/${todate}`}>
             <button className="btn btn-dark m-2">Book Now</button>
           </Link>)}
-
+          
           <button className="btn btn-danger m-2"  onClick={handleShow}>
             View Details
           </button>

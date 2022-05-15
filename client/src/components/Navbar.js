@@ -32,7 +32,7 @@ function Navbar() {
         </a>
       
         <a className="navbar-brand" href="../HelpScreen">
-          Help
+          About
         </a>
         
         <button

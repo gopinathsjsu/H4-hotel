@@ -89,15 +89,18 @@ p{
 .landing{
   
   height:calc(100vh) !important;
-  background-image: url(./images/back.jpg);
-  background-size: "cover";
-  height: 150vh;
+  background-image: url(./images/new_back.jpeg);
+  background-size: cover;
+  /*height: 150vh;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 
   font-size:50px;
-  /* background-repeat:no-repeat;  */
+  /*background-repeat:no-repeat;*/
   background-color:rgb(0, 0, 0) !important;
-  
 }
+
 .landing .btn{
   background-color:white !important;
   color:black !important;
