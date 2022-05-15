@@ -80,4 +80,6 @@ https://github.com/gopinathsjsu/team-project-thefantasticfour/blob/main/ProjectJ
 
 ![WhatsApp Image 2022-05-13 at 3 29 20 PM](https://user-images.githubusercontent.com/56205828/168397271-e7345bc8-5090-407f-843f-59af568bfacb.jpeg)
 
+### Load Balancer:
+![image](https://user-images.githubusercontent.com/99461999/168499126-0af9499f-d543-45e1-bee6-e3dc0778ec75.png)
 
