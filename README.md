@@ -83,3 +83,5 @@ https://github.com/gopinathsjsu/team-project-thefantasticfour/blob/main/ProjectJ
 ### Load Balancer:
 ![image](https://user-images.githubusercontent.com/99461999/168499126-0af9499f-d543-45e1-bee6-e3dc0778ec75.png)
 
+### Target Group:
+![image](https://user-images.githubusercontent.com/99461999/168499380-028a4c49-5415-43ce-ad3c-2106345d2cbd.png)
