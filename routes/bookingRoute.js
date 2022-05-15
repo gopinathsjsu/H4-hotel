@@ -2,14 +2,42 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
+const sgMail = require('@sendgrid/mail');
 const moment = require("moment");
 const stripe = require("stripe")(
   "sk_test_51IYnC0SIR2AbPxU0EiMx1fTwzbZXLbkaOcbc2cXx49528d9TGkQVjUINJfUDAnQMVaBFfBDP5xtcHCkZG1n1V3E800U7qXFmGf"
 );
 const Booking = require("../models/booking");
 const Room = require("../models/room");
+const sendgridApiKey = "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";
+sgMail.setApiKey(sendgridApiKey);
+
+const msg = {
+  to: 'shubhadasanjay.paithankar@sjsu.edu', // Change to your recipient
+  from: 'shubhadasanjay.paithankar@sjsu.edu', // Change to your verified sender
+  subject: 'Your Reservation has been confirmed',
+  text: 'You have successfully completed reservation',
+  html: '<strong>You have successfully completed reservation</strong>',
+}
+
 router.post("/bookroom", async (req, res) => {
   const { room, fromdate, todate, totalDays, totalAmount, user , token } = req.body;
+    console.log("bookroom api is called");
+
+    console.log("payment is successful");
+    msg.to = user.email;
+
+    console.log("msg: " + JSON.stringify(msg));
+    sgMail
+    .send(msg)
+    .then((response) => {
+
+      console.log(response[0].statusCode)
+      console.log(response[0].headers)
+    })
+    .catch((error) => {
+      console.error(error)
+    })
 
     try {
       const customer = await stripe.customers.create({
@@ -31,6 +59,8 @@ router.post("/bookroom", async (req, res) => {
 
       if (true) {
         try {
+        
+
           const newbooking = new Booking({
             userid: user._id,
             room: room.name,

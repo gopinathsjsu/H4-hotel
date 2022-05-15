@@ -10,6 +10,7 @@ app.use('/api/rooms', roomsRoutes)
 app.use('/api/users', userRoute)
 app.use('/api/bookings', bookingsRoute)
 
+// The backend is inspired from udemy course by shreyrooms. 
 if (process.env.NODE_ENV === 'production') {
     app.use('/', express.static('client/build'))
 
