@@ -87,3 +87,31 @@ https://github.com/gopinathsjsu/team-project-thefantasticfour/blob/main/ProjectJ
 ![image](https://user-images.githubusercontent.com/99461999/168499380-028a4c49-5415-43ce-ad3c-2106345d2cbd.png)
 
 ### Project Implimentation :
+
+### User Page
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 28 58 PM" src="https://user-images.githubusercontent.com/56205828/168511664-563eeb8e-fedd-4816-ab13-95e1b7560783.png">
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 29 09 PM" src="https://user-images.githubusercontent.com/56205828/168511678-0cceaca1-83dc-4be9-be30-4c0b25d15d0a.png">
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 29 33 PM" src="https://user-images.githubusercontent.com/56205828/168511690-aecd14bb-e92c-4406-ab02-476048aeed03.png">
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 29 38 PM" src="https://user-images.githubusercontent.com/56205828/168511696-ed1d0fb0-a070-4cab-b6a0-f11e74d9c792.png">
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 29 44 PM" src="https://user-images.githubusercontent.com/56205828/168511732-76842298-8bb6-413c-900f-fe0dc8d39064.png">
+
+![screencapture-localhost-3000-book-6251df4974103e168241df95-06-01-2022-06-04-2022-2022-05-15-19_30_31](https://user-images.githubusercontent.com/56205828/168511960-3c761bca-455f-442d-b308-50dca6bb92d5.png)
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 47 05 PM" src="https://user-images.githubusercontent.com/56205828/168511779-425f0a09-b3d6-4bb6-8ed6-035b394fe04b.png">
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 47 27 PM" src="https://user-images.githubusercontent.com/56205828/168512036-c4548bc1-e29c-4697-9fa9-04608933ff27.png">
+
+### Admin Page
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 47 38 PM" src="https://user-images.githubusercontent.com/56205828/168512056-dee1602d-3ecc-4bfc-8ce5-ba479d0113a2.png">
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 47 43 PM" src="https://user-images.githubusercontent.com/56205828/168512085-b6bb9f6f-5873-4dbf-87ee-4d2b1e798824.png">
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 47 45 PM" src="https://user-images.githubusercontent.com/56205828/168512103-5b02647a-cab1-4410-ac62-e9fb92527d4b.png">
+
+<img width="1440" alt="Screen Shot 2022-05-15 at 7 47 49 PM" src="https://user-images.githubusercontent.com/56205828/168512118-3b0ccb63-26fd-4375-997c-86400a750e17.png">
